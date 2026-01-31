@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charulekh Prakashan - Devotional Books & Spiritual Products</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff6b35;
+            /* Orange-Red */
+            --secondary-color: #2c3e50;
+            /* Dark Blue/Gray */
+            --accent-color: #f39c12;
+            /* Golden Orange */
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            /* Light Gray */
+            --white: #ffffff;
+            --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            padding: 1rem 0;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .navbar-scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            /* Extra bold */
+            font-size: 1.6rem;
+            color: var(--primary-color) !important;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img.logo {
+            height: 40px;
+            margin-right: 0.5rem;
+        }
+
+        .navbar-brand .fa-book-open {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--secondary-color) !important;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color) !important;
+            background-color: rgba(255, 107, 53, 0.1);
+        }
+
+        .navbar-nav .nav-link.active {
+            color: var(--primary-color) !important;
+            font-weight: 700;
+            background-color: rgba(255, 107, 53, 0.05);
+        }
+
+        /* Logo Specific Styling */
+        .navbar-brand img.logo {
+            height: 40px;
+            /* Adjust height as needed */
+            margin-right: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: white;
+            padding: 120px 0;
+            /* More vertical space */
+            position: relative;
+            overflow: hidden;
+            border-bottom-left-radius: 80px;
+            /* More pronounced rounded corners */
+            border-bottom-right-radius: 80px;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.15)"/></pattern></defs><rect width="100" height="100" fill="url(%23pattern)"/></svg>');
+            opacity: 0.5;
+            /* Slightly more visible pattern */
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            /* Center content on smaller screens */
+        }
+
+        @media (min-width: 992px) {
+            .hero-content {
+                text-align: left;
+                /* Align left on larger screens */
+            }
+        }
+
+
+        .hero-content h1 {
+            font-size: 3.8rem;
+            /* Larger hero title */
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            /* Larger lead paragraph */
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            /* Center on small screens */
+            text-align: center;
+            /* Center align on small screens */
+            opacity: 0.9;
+        }
+
+        @media (min-width: 992px) {
+            .hero-content p {
+                margin-left: 0;
+                /* Align left on large screens */
+                text-align: left;
+            }
+        }
+
+
+        .hero-section .fa-om {
+            font-size: 15rem;
+            /* Larger OM icon */
+            opacity: 0.15;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            transform: translate(20%, 20%);
+            z-index: 0;
+            filter: blur(1px);
+        }
+
+        @media (max-width: 991.98px) {
+            .hero-section .fa-om {
+                position: relative;
+                transform: none;
+                font-size: 10rem;
+                margin-top: 2rem;
+            }
+        }
+
+        /* General Section Styling */
+        section {
+            padding: 80px 0;
+            /* Consistent vertical padding */
+            overflow: hidden;
+            /* Prevent content overflow */
+        }
+
+        .section-title {
+            color: var(--secondary-color);
+            font-weight: 800;
+            /* Extra bold */
+            font-size: 2.5rem;
+            /* Larger section titles */
+            margin-bottom: 2.5rem;
+            position: relative;
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+            /* Ensure underline spans full width when centered */
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            /* Adjust distance */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            /* Wider underline */
+            height: 4px;
+            /* Thicker underline */
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* Button Styles */
+        .btn {
+            border-radius: 50px;
+            /* Pill shape */
+            padding: 0.8rem 2.2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            transform: translateY(-3px);
+            /* Subtle lift effect */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline-light {
+            border-color: var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline-light:hover {
+            background: var(--white);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--white);
+            /* Changed to white background */
+            padding: 80px 0 50px;
+            /* Adjusted padding */
+            box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.05);
+            /* Subtle inner shadow */
+        }
+
+        .stat-item {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-light);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+            background-color: var(--light-bg);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            /* Larger numbers */
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item h5 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 0.95rem;
+            color: #777;
+        }
+
+        /* About Section */
+        #about {
+            background-color: var(--light-bg);
+            padding-bottom: 50px;
+        }
+
+        #about .lead {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+
+        #about p {
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        #about h5 {
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        #about h5 i {
+            margin-right: 0.75rem;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .quality-feature {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-light);
+            height: 100%;
+            /* Ensure cards have same height */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .quality-feature:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+            background-color: var(--white);
+            /* Keep white background on hover */
+        }
+
+        .quality-icon {
+            font-size: 3.5rem;
+            /* Larger icons */
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .quality-feature h5 {
+            font-size: 1.6rem;
+            /* Larger heading */
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .quality-feature p {
+            font-size: 1.05rem;
+            color: #666;
+        }
+
+        /* Products Section */
+        #products {
+            background-color: var(--white);
+            padding-bottom: 50px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* Center content vertically */
+            padding: 2rem;
+            /* Increased padding */
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            /* More pronounced lift */
+            box-shadow: var(--shadow-medium);
+        }
+
+        .product-icon {
+            font-size: 5rem;
+            /* Even larger icon */
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            /* Increased margin */
+        }
+
+        .product-card h5 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 0.75rem;
+        }
+
+        .product-card p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .products-list-item {
+            background: var(--white);
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            font-size: 1.05rem;
+            color: #444;
+            transition: all 0.2s ease;
+        }
+
+        .products-list-item:hover {
+            background-color: rgba(255, 107, 53, 0.05);
+            transform: translateX(5px);
+            border-color: var(--primary-color);
+        }
+
+        .products-list-item i {
+            color: var(--primary-color);
+            /* Changed from success to primary */
+            margin-right: 1rem;
+            font-size: 1.3rem;
+        }
+
+
+        /* Quality Section */
+        #quality {
+            background-color: var(--light-bg);
+            padding-bottom: 50px;
+        }
+
+        #quality .text-center {
+            padding-bottom: 2rem;
+        }
+
+        /* Featured Product Section */
+        #featured-product {
+            background-color: var(--white);
+        }
+
+        .featured-product-image {
+            border-radius: 15px;
+            box-shadow: var(--shadow-medium);
+            overflow: hidden;
+        }
+
+        .featured-product-image img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .featured-product-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .featured-product-details h3 {
+            font-weight: 700;
+            color: var(--secondary-color);
+            font-size: 2rem;
+        }
+
+        .featured-product-details .lead {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .featured-product-details ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .featured-product-details ul li {
+            font-size: 1.05rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .featured-product-details ul li i {
+            color: var(--primary-color);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Featured Blog Section */
+        #featured-blog {
+            background-color: var(--light-bg);
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .blog-card-content {
+            padding: 2rem;
+        }
+
+        .blog-card-category {
+            display: inline-block;
+            background-color: rgba(255, 107, 53, 0.1);
+            color: var(--primary-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .blog-card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .blog-card-excerpt {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: var(--secondary-color);
+            /* Darker background for contrast */
+            color: white;
+            padding-bottom: 50px;
+        }
+
+        #contact .section-title {
+            color: var(--white);
+        }
+
+        #contact .section-title::after {
+            background-color: var(--primary-color);
+        }
+
+        .contact-info {
+            background: var(--white);
+            padding: 40px;
+            /* Increased padding */
+            border-radius: 15px;
+            box-shadow: var(--shadow-medium);
+            margin-bottom: 30px;
+            color: var(--text-color);
+            /* Ensure text is readable on white background */
+        }
+
+        .contact-info h5 {
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info h5 i {
+            margin-right: 0.75rem;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .contact-info p {
+            color: #555;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--secondary-color);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: auto;
+            box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer h5,
+        .footer h6 {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer p,
+        .footer ul li {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .footer ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer ul li a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .footer hr {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 767.98px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .stat-number {
+                font-size: 3rem;
+            }
+
+            .btn {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .d-flex.gap-3.flex-wrap {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="./assets/img/logo.png" alt="Charulekh Prakashan Logo" class="logo">
+                Charulekh Prakashan
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="books.html">Books</a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quality">Quality</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login/Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section id="home" class="hero-section d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-8 hero-content">
+                    <h1 class="display-4 fw-bold mb-4">Charulekh Prakashan</h1>
+                    <p class="fs-5 mb-4 opacity-9">Your trusted source for enriching devotional books and authentic
+                        spiritual products. Dive into wisdom, find inner peace.</p>
+                    <div class="d-flex gap-3 flex-wrap justify-content-center justify-content-lg-start">
+                        <a href="products.html" class="btn btn-primary btn-lg">Explore Products</a>
+                        <a href="about.html" class="btn btn-outline-light btn-lg">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <i class="fas fa-om"></i>
+    </section>
+
+    <section id="stats" class="stats-section">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <div class="stat-item">
+                        <div class="stat-number">100+</div>
+                        <h5>Devotional Books</h5>
+                        <p>A vast collection covering various spiritual traditions.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <h5>Spiritual Products</h5>
+                        <p>Hand-picked items for your spiritual journey.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-item">
+                        <div class="stat-number">10K+</div>
+                        <h5>Happy Customers</h5>
+                        <p>Join our growing family of satisfied seekers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="container">
+        <div class="row align-items-center gy-5">
+            <div class="col-lg-6">
+                <h2 class="section-title">About Charulekh Prakashan</h2>
+                <p class="lead">Dedicated to spreading spiritual knowledge and fostering inner peace through
+                    meaningful literature and authentic products.</p>
+                <p>Founded with a vision to make spiritual wisdom accessible, Charulekh Prakashan curates a diverse
+                    range of devotional books, ancient scriptures, and contemporary spiritual guides. We also offer a
+                    selection of high-quality spiritual products designed to support your practices and enhance your
+                    sacred space.</p>
+                <p>Our commitment lies in providing resources that inspire, educate, and empower individuals on their
+                    spiritual journey. We believe in the transformative power of knowledge and devotion.</p>
+
+                <h5 class="mt-4"><i class="fas fa-gem"></i>Our Core Values</h5>
+                <ul>
+                    <li>Authenticity in every product and publication.</li>
+                    <li>Commitment to spiritual growth and well-being.</li>
+                    <li>Integrity and transparency in all dealings.</li>
+                </ul>
+            </div>
+            <div class="col-lg-6 text-center">
+                <div class="row gy-4">
+                    <div class="col-md-6">
+                        <div class="quality-feature">
+                            <i class="quality-icon fas fa-leaf"></i>
+                            <h5>Pure & Authentic</h5>
+                            <p>Sourced from trusted origins, ensuring purity.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="quality-feature">
+                            <i class="quality-icon fas fa-hands-praying"></i>
+                            <h5>Devotion Focused</h5>
+                            <p>Products and books to deepen your spiritual practice.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="quality-feature">
+                            <i class="quality-icon fas fa-book-reader"></i>
+                            <h5>Enriching Knowledge</h5>
+                            <p>Curated content for profound spiritual understanding.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="quality-feature">
+                            <i class="quality-icon fas fa-heart"></i>
+                            <h5>Customer Centric</h5>
+                            <p>Your spiritual journey is our priority.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="container">
+        <h2 class="section-title">Our Products & Offerings</h2>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="product-card text-center">
+                    <i class="product-icon fas fa-book"></i>
+                    <h5>Devotional Books</h5>
+                    <p>Explore a wide array of scriptures, hymns, and spiritual philosophies from various traditions.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="product-card text-center">
+                    <i class="product-icon fas fa-dharmachakra"></i>
+                    <h5>Spiritual Idols & Statues</h5>
+                    <p>Beautifully crafted idols and statues for your altar and home decor.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="product-card text-center">
+                    <i class="product-icon fas fa-seedling"></i>
+                    <h5>Organic Pooja Essentials</h5>
+                    <p>Natural and ethically sourced items for daily rituals and ceremonies.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="product-card text-center">
+                    <i class="product-icon fas fa-gem"></i>
+                    <h5>Healing Crystals & Gemstones</h5>
+                    <p>Discover the power of natural crystals for balance, energy, and well-being.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="product-card text-center">
+                    <i class="product-icon fas fa-hand-holding-heart"></i>
+                    <h5>Meditation & Yoga Accessories</h5>
+                    <p>Enhance your practice with comfortable mats, cushions, and calming aids.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="product-card text-center">
+                    <i class="product-icon fas fa-feather-alt"></i>
+                    <h5>Spiritual Art & Decor</h5>
+                    <p>Adorn your space with sacred art and decor inspiring peace and mindfulness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quality" class="container">
+        <h2 class="section-title">Why Choose Charulekh Prakashan?</h2>
+        <p class="text-center lead mb-5">We are committed to providing only the highest quality and most authentic
+            spiritual resources.</p>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="products-list-item">
+                    <i class="fas fa-check-circle"></i> Extensively Researched Content
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="products-list-item">
+                    <i class="fas fa-check-circle"></i> Authentically Sourced Products
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="products-list-item">
+                    <i class="fas fa-check-circle"></i> Expert-Curated Collections
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="products-list-item">
+                    <i class="fas fa-check-circle"></i> Sustainable & Ethical Practices
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="products-list-item">
+                    <i class="fas fa-check-circle"></i> Dedicated Customer Support
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="products-list-item">
+                    <i class="fas fa-check-circle"></i> Community & Spiritual Guidance
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="featured-product" class="container py-5">
+        <h2 class="section-title">Featured Product</h2>
+        <div class="row align-items-center g-5">
+            <div class="col-md-6">
+                <div class="featured-product-image">
+                    <img src="http://googleusercontent.com/image_generation_content/0" class="img-fluid"
+                        alt="Featured Product Image">
+                </div>
+            </div>
+            <div class="col-md-6 featured-product-details">
+                <h3>The Bhagavad Gita: A Timeless Classic</h3>
+                <p class="lead">A profound and accessible translation of this ancient Indian scripture, perfect for
+                    modern seekers.</p>
+                <p>Delve into the wisdom of the Bhagavad Gita, a cornerstone of Hindu philosophy. This edition features
+                    clear, concise verses with insightful commentary, making complex spiritual concepts understandable
+                    for all. Ideal for daily reflection and study.</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Authentic Translation</li>
+                    <li><i class="fas fa-check-circle"></i> Comprehensive Commentary</li>
+                    <li><i class="fas fa-check-circle"></i> Durable Hardcover Edition</li>
+                    <li><i class="fas fa-check-circle"></i> Ideal for all levels of spiritual seekers</li>
+                </ul>
+                <a href="product-details.html" class="btn btn-primary mt-3">View Details</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="featured-blog" class="container py-5">
+        <h2 class="section-title">From Our Blog</h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="blog-card">
+                    <img src="http://googleusercontent.com/image_generation_content/0" class="card-img-top"
+                        alt="Blog Post Image 1">
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Spiritual Wisdom</span>
+                        <h5 class="blog-card-title">The Power of Mantras: Unlocking Inner Harmony</h5>
+                        <p class="blog-card-excerpt">Discover how ancient sound vibrations can transform your mind and
+                            elevate your
+                            consciousness. Learn practical tips for mantra meditation.</p>
+                        <a href="blog-post-1.html" class="btn btn-primary btn-sm">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="blog-card">
+                    <img src="http://googleusercontent.com/image_generation_content/0" class="card-img-top"
+                        alt="Blog Post Image 2">
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Product Focus</span>
+                        <h5 class="blog-card-title">Choosing the Right Healing Crystals for You</h5>
+                        <p class="blog-card-excerpt">A beginner's guide to understanding different crystals and their
+                            properties. Find
+                            the perfect crystal companion for your needs.</p>
+                        <a href="blog-post-2.html" class="btn btn-primary btn-sm">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="blog-card">
+                    <img src="http://googleusercontent.com/image_generation_content/0" class="card-img-top"
+                        alt="Blog Post Image 3">
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">Devotional Practice</span>
+                        <h5 class="blog-card-title">Establishing a Daily Spiritual Routine</h5>
+                        <p class="blog-card-excerpt">Simple yet powerful ways to integrate spiritual practices into your
+                            everyday life
+                            for sustained peace and growth.</p>
+                        <a href="blog-post-3.html" class="btn btn-primary btn-sm">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-5 col-md-6">
+                    <div class="contact-info">
+                        <h5><i class="fas fa-map-marker-alt"></i>Our Location</h5>
+                        <p>123 Spiritual Path, Devotion City, SP 45678</p>
+                        <h5><i class="fas fa-envelope"></i>Email Us</h5>
+                        <p>info@charulekhprakashan.com</p>
+                        <h5><i class="fas fa-phone-alt"></i>Call Us</h5>
+                        <p>+91 98765 43210</p>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-6">
+                    <div class="contact-info">
+                        <h5><i class="fas fa-comments"></i>Send Us a Message</h5>
+                        <form>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Your Name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="5"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>Charulekh Prakashan</h5>
+                    <p>Dedicated to enriching lives through spiritual wisdom and authentic products. Your journey to
+                        inner peace starts here.</p>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h6>Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h6>Contact Info</h6>
+                    <p><i class="fas fa-map-marker-alt me-2"></i>123 Spiritual Path, Devotion City</p>
+                    <p><i class="fas fa-envelope me-2"></i>info@charulekhprakashan.com</p>
+                    <p><i class="fas fa-phone-alt me-2"></i>+91 98765 43210</p>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h6>Follow Us</h6>
+                    <ul class="list-unstyled d-flex gap-3 social-icons">
+                        <li><a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#" class="text-white"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#" class="text-white"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#" class="text-white"><i class="fab fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0">&copy; 2024 Charulekh Prakashan. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar sticky effect on scroll
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+
+            // Update active nav link based on scroll position
+            const sections = document.querySelectorAll('section[id]');
+            const scrollY = window.scrollY;
+
+            sections.forEach(current => {
+                const sectionHeight = current.offsetHeight;
+                const sectionTop = current.offsetTop - navbar.offsetHeight - 20; // Adjusted offset
+
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    const correspondingLink = document.querySelector('.navbar-nav a[href="#' + current.id + '"]');
+                    if (correspondingLink) {
+                        correspondingLink.classList.add('active');
+                    }
+                }
+            });
+        });
+
+        // Initialize active state on load for the current section (Home)
+        document.querySelector('.navbar-nav a[href="#home"]').classList.add('active');
+    </script>
+</body>
+
+</html>

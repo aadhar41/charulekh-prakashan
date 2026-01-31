@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Charulekh Prakashan</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff6b35;
+            --secondary-color: #2c3e50;
+            --accent-color: #f39c12;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+        }
+
+        .navbar-brand img.logo {
+            height: 40px;
+            margin-right: 0.5rem;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 80px 0 60px 0;
+            position: relative;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            color: var(--secondary-color);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+
+        .quality-feature {
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .quality-feature:hover {
+            background: var(--light-bg);
+            border-radius: 10px;
+        }
+
+        .quality-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .leadership-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .leadership-card img {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            border: 3px solid var(--primary-color);
+        }
+
+        .footer {
+            background: var(--secondary-color);
+            color: white;
+            padding: 40px 0 20px;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="./assets/img/logo.png" alt="Charulekh Prakashan Logo" class="logo">
+                Charulekh Prakashan
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="books.html">Books</a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quality">Quality</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login/Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>About Charulekh Prakashan</h1>
+            <p>
+                Established in 1990 in Jaipur, Rajasthan, Charulekh Prakashan is a trusted name in devotional publishing
+                and spiritual products. We are dedicated to spreading spiritual wisdom and providing authentic, quality
+                products to seekers across India.
+            </p>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="section-title">Our Journey</h2>
+                    <p class="lead">
+                        For over three decades, Charulekh Prakashan has been a beacon of spiritual knowledge and
+                        devotion. Our journey began with a vision to make spiritual literature and products accessible
+                        to everyone, regardless of background or language.
+                    </p>
+                    <p>
+                        We publish a wide range of books on astrology, numerology, tantra, and devotional practices, all
+                        written in simple, easy-to-understand language. Our incense, gemstones, and ritual products are
+                        crafted with utmost care and authenticity, ensuring purity and effectiveness.
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="assets/about-journey.jpg" alt="Charulekh Prakashan Journey"
+                        class="img-fluid rounded shadow">
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+                    <h2 class="section-title">Our Mission & Values</h2>
+                    <ul class="list-unstyled fs-5">
+                        <li><i class="fas fa-check-circle text-success me-2"></i>Promote spiritual knowledge and Indian
+                            traditions</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i>Deliver authentic, quality products and
+                            literature</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i>Ensure customer satisfaction and trust
+                        </li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i>Support seekers on their spiritual
+                            journey</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <img src="assets/about-mission.jpg" alt="Our Mission" class="img-fluid rounded shadow">
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-lg-4">
+                    <div class="quality-feature">
+                        <i class="fas fa-star quality-icon"></i>
+                        <h5>Premium Quality</h5>
+                        <p>We use the best raw materials and maintain strict quality standards for all our products.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="quality-feature">
+                        <i class="fas fa-shield-alt quality-icon"></i>
+                        <h5>Authenticity</h5>
+                        <p>Every book, gemstone, and incense is verified for authenticity and spiritual value.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="quality-feature">
+                        <i class="fas fa-heart quality-icon"></i>
+                        <h5>Customer Focus</h5>
+                        <p>We are committed to customer satisfaction and ethical business practices.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-6">
+                    <div class="leadership-card">
+                        <img src="assets/vipul-sharma.jpg" alt="Ms. Vipul Sharma">
+                        <h5 class="mb-1">Ms. Vipul Sharma</h5>
+                        <p class="mb-1 text-muted">CEO & Proprietor</p>
+                        <p>
+                            Our visionary leader, Ms. Vipul Sharma, has been the driving force behind Charulekh
+                            Prakashan's growth and reputation. Her dedication to quality, ethics, and spiritual service
+                            inspires our entire team.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-3 mb-4">
+                    <div>
+                        <div class="stat-number" style="font-size:2.5rem; color:var(--primary-color);">34+</div>
+                        <div>Years of Experience</div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div>
+                        <div class="stat-number" style="font-size:2.5rem; color:var(--primary-color);">1000+</div>
+                        <div>Happy Customers</div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div>
+                        <div class="stat-number" style="font-size:2.5rem; color:var(--primary-color);">50+</div>
+                        <div>Product Categories</div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div>
+                        <div class="stat-number" style="font-size:2.5rem; color:var(--primary-color);">100%</div>
+                        <div>Quality Assured</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h5><i class="fas fa-book-open me-2"></i>Charulekh Prakashan</h5>
+                    <p>Your trusted partner for spiritual books, devotional products, and authentic spiritual content
+                        since 1990. Serving customers across India with quality and dedication.</p>
+                </div>
+                <div class="col-lg-3">
+                    <h6>Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="index.html#products">Products</a></li>
+                        <li><a href="index.html#quality">Quality</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6>Product Categories</h6>
+                    <ul class="list-unstyled">
+                        <li>Spiritual Books</li>
+                        <li>Havan Products</li>
+                        <li>Natural Gemstones</li>
+                        <li>Incense Products</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2024 Charulekh Prakashan. All rights reserved. | Jaipur, Rajasthan, India</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

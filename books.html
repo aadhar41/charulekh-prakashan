@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books Catalog - Charulekh Prakashan</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom CSS variables based on existing theme */
+        :root {
+            --primary-color: #ff6b35;
+            --secondary-color: #2c3e50;
+            --accent-color: #f39c12;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            /* Use light background for content pages */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header (Navbar) - Replicated from existing pages */
+        .navbar {
+            background-color: #fff;
+            /* White background for header */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            /* Subtle shadow */
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+            /* Ensure brand color matches */
+        }
+
+        .navbar-brand img.logo {
+            height: 40px;
+            margin-right: 0.5rem;
+        }
+
+        .navbar-brand .fa-book-open {
+            color: var(--primary-color);
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--secondary-color) !important;
+            /* Link color */
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color) !important;
+            /* Hover color */
+        }
+
+        .navbar-nav .nav-link.active {
+            color: var(--primary-color) !important;
+            /* Active link color */
+            font-weight: 600;
+        }
+
+        /* Section Titles - Replicated from existing pages */
+        .section-title {
+            color: var(--secondary-color);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+            /* For the underline effect */
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 70px;
+            /* Slightly wider underline for prominence */
+            height: 3px;
+            background: var(--primary-color);
+        }
+
+        /* Page Hero Section - Adapted for Books Catalog */
+        .page-hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 80px 0 40px;
+            /* Adjust padding for visual balance */
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom-left-radius: 50px;
+            /* Rounded bottom corners */
+            border-bottom-right-radius: 50px;
+            margin-bottom: 3rem;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23pattern)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Main Content Section styling */
+        .books-content {
+            padding-top: 3rem;
+            /* Add padding at the top to clear the fixed header */
+            padding-bottom: 3rem;
+        }
+
+        /* Book Card */
+        .book-card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-card img {
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            object-fit: cover;
+            height: 250px;
+            /* Adjusted height for book covers */
+            width: 100%;
+            /* Maintain aspect ratio and center image */
+            object-position: center;
+        }
+
+        .book-card .card-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            /* Distribute content and push button to bottom */
+        }
+
+        .book-card .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .book-card .card-subtitle {
+            font-size: 0.95rem;
+            color: #777;
+            margin-bottom: 1rem;
+        }
+
+        .book-card .card-text {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+            /* Space before price */
+            flex-grow: 1;
+            /* Allow description to take space */
+        }
+
+        .book-card .book-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-top: 1rem;
+            /* Space after description */
+            margin-bottom: 1rem;
+            /* Space before button */
+        }
+
+        .book-card .btn-primary {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            border-radius: 50px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .book-card .btn-primary:hover {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Sidebar for Categories/Filters */
+        .sidebar {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-top: 0;
+            /* No top margin for products sidebar */
+            margin-bottom: 2rem;
+            /* Added margin for separation */
+        }
+
+        /* Separate contact sidebar */
+        .contact-sidebar {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            margin-top: 0;
+            /* Aligned with the bottom of the main sidebar */
+        }
+
+        @media (max-width: 991.98px) {
+
+            /* Adjust sidebar margin for smaller screens */
+            .sidebar,
+            .contact-sidebar {
+                margin-top: 2rem;
+            }
+        }
+
+        .sidebar h4,
+        .contact-sidebar h4 {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .sidebar h4::after,
+        .contact-sidebar h4::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        .contact-sidebar h4::after {
+            /* Center the underline for contact sidebar */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .sidebar .list-group-item {
+            border: none;
+            padding: 0.75rem 1rem;
+            /* Added horizontal padding */
+            color: #555;
+            transition: all 0.3s ease;
+            /* Change to all for smooth background transition */
+            border-radius: 8px;
+            /* Slightly rounded corners for hover/active */
+            margin-bottom: 5px;
+            /* Small margin between items */
+        }
+
+        .sidebar .list-group-item:hover {
+            color: var(--primary-color);
+            background-color: rgba(255, 107, 53, 0.05);
+            /* Light primary color background on hover */
+        }
+
+        .sidebar .list-group-item.active {
+            color: var(--primary-color);
+            font-weight: 600;
+            background-color: var(--light-bg);
+            /* Use light background for active category */
+        }
+
+
+        /* Filter specific styles */
+        .filter-group {
+            margin-bottom: 2rem;
+        }
+
+        .filter-group label {
+            font-weight: 500;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .filter-group .form-check-label {
+            color: #666;
+        }
+
+        .filter-group .form-check-input:checked {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .filter-group .form-range {
+            accent-color: var(--primary-color);
+            /* For thumb and track */
+        }
+
+        /* Search Bar Styling */
+        .search-bar .form-control {
+            border-radius: 50px;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid #ddd;
+        }
+
+        .search-bar .btn {
+            border-radius: 50px;
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+        }
+
+        .search-bar .btn:hover {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        /* Footer - Replicated from existing pages */
+        .footer {
+            background: var(--secondary-color);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: auto;
+            /* Push footer to the bottom */
+        }
+
+        .footer h5,
+        .footer h6 {
+            color: var(--primary-color);
+            /* Highlight footer headings */
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer p,
+        .footer ul li {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .footer ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer ul li a:hover {
+            color: white;
+        }
+
+        .footer hr {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 767.98px) {
+
+            /* Adjust for mobile hero */
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .page-hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="./assets/img/logo.png" alt="Charulekh Prakashan Logo" class="logo">
+                Charulekh Prakashan
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="books.html">Books</a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quality">Quality</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login/Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Our Spiritual Book Collection</h1>
+            <p>Explore a vast library of Vedic astrology, numerology, tantra, and devotional books for profound
+                spiritual understanding.</p>
+        </div>
+    </section>
+
+    <!-- Books Catalog Content Section -->
+    <section id="books-content" class="py-5 books-content">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar Column for Categories/Filters -->
+                <div class="col-lg-3 order-lg-first">
+                    <div class="sidebar">
+                        <h4>Search Books</h4>
+                        <div class="input-group mb-4 search-bar">
+                            <input type="text" class="form-control" placeholder="Search by title or author"
+                                id="bookSearchInput">
+                            <button class="btn" type="button" id="bookSearchBtn"><i class="fas fa-search"></i></button>
+                        </div>
+
+                        <h4 class="mt-4">Book Categories</h4>
+                        <div class="list-group list-group-flush filter-group" id="categoryFilter">
+                            <a href="#" class="list-group-item active" data-category="all">All Books</a>
+                            <a href="#" class="list-group-item" data-category="vedic-astrology">Vedic Astrology</a>
+                            <a href="#" class="list-group-item" data-category="numerology">Numerology</a>
+                            <a href="#" class="list-group-item" data-category="tantra-mantra">Tantra & Mantra</a>
+                            <a href="#" class="list-group-item" data-category="devotional">Devotional Texts</a>
+                            <a href="#" class="list-group-item" data-category="vastu-shastra">Vastu Shastra</a>
+                            <a href="#" class="list-group-item" data-category="yoga-meditation">Yoga & Meditation</a>
+                            <a href="#" class="list-group-item" data-category="philosophy">Spiritual Philosophy</a>
+                            <a href="#" class="list-group-item" data-category="healing">Healing & Wellness</a>
+                        </div>
+
+                        <h4 class="mt-4">Price Range</h4>
+                        <div class="filter-group mb-4">
+                            <div class="d-flex justify-content-between">
+                                <span id="minPriceDisplay">₹0</span>
+                                <span id="maxPriceDisplay">₹1500+</span>
+                            </div>
+                            <input type="range" class="form-range" id="priceRange" min="0" max="1500" step="50"
+                                value="1500">
+                        </div>
+
+                        <h4 class="mt-4">Sort By</h4>
+                        <div class="filter-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sortBy" id="sortFeatured"
+                                    value="featured" checked>
+                                <label class="form-check-label" for="sortFeatured">Featured</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sortBy" id="sortPriceLowHigh"
+                                    value="price-asc">
+                                <label class="form-check-label" for="sortPriceLowHigh">Price: Low to High</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sortBy" id="sortPriceHighLow"
+                                    value="price-desc">
+                                <label class="form-check-label" for="sortPriceHighLow">Price: High to Low</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sortBy" id="sortNameAsc"
+                                    value="name-asc">
+                                <label class="form-check-label" for="sortNameAsc">Name: A-Z</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sortBy" id="sortNameDesc"
+                                    value="name-desc">
+                                <label class="form-check-label" for="sortNameDesc">Name: Z-A</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-sidebar mt-4">
+                        <h4>Looking for a specific book?</h4>
+                        <p class="text-muted">Contact us, and we'll help you find it or recommend one.</p>
+                        <a href="index.html#contact" class="btn btn-primary rounded-pill w-100">Inquire Now</a>
+                    </div>
+                </div>
+
+                <!-- Book List Column -->
+                <div class="col-lg-9 order-lg-last">
+                    <h2 class="section-title mb-5">Featured Books</h2>
+
+                    <div class="row g-4" id="book-listing">
+                        <!-- Book Card 1: Vedic Astrology -->
+                        <div class="col-md-6 col-lg-4 book-item" data-category="vedic-astrology" data-price="899"
+                            data-name="Brihat Parashara Hora Shastra">
+                            <div class="card book-card">
+                                <img src="https://placehold.co/800x1200/ff6b35/FFFFFF?text=Vedic+Astrology"
+                                    class="card-img-top" alt="Vedic Astrology Book Cover">
+                                <div class="card-body">
+                                    <h5 class="card-title">Brihat Parashara Hora Shastra</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Maharishi Parashara</h6>
+                                    <p class="card-text">The foundational text of Vedic astrology, providing
+                                        comprehensive knowledge of planetary positions and their effects.</p>
+                                    <div class="book-price">₹899</div>
+                                    <a href="#" class="btn btn-primary w-100">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Book Card 2: Numerology -->
+                        <div class="col-md-6 col-lg-4 book-item" data-category="numerology" data-price="450"
+                            data-name="Secrets of Numerology Revealed">
+                            <div class="card book-card">
+                                <img src="https://placehold.co/800x1200/f39c12/FFFFFF?text=Numerology+Secrets"
+                                    class="card-img-top" alt="Numerology Book Cover">
+                                <div class="card-body">
+                                    <h5 class="card-title">Secrets of Numerology Revealed</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Dr. Arya Sharma</h6>
+                                    <p class="card-text">Unlock the power of numbers and discover how they influence
+                                        your life path, personality, and destiny.</p>
+                                    <div class="book-price">₹450</div>
+                                    <a href="#" class="btn btn-primary w-100">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Book Card 3: Tantra & Mantra -->
+                        <div class="col-md-6 col-lg-4 book-item" data-category="tantra-mantra" data-price="675"
+                            data-name="The Essence of Tantric Practices">
+                            <div class="card book-card">
+                                <img src="https://placehold.co/800x1200/2c3e50/FFFFFF?text=Tantra+Mantra"
+                                    class="card-img-top" alt="Tantra Mantra Book Cover">
+                                <div class="card-body">
+                                    <h5 class="card-title">The Essence of Tantric Practices</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Swami Dayananda</h6>
+                                    <p class="card-text">An insightful guide into authentic Tantric and Mantra practices
+                                        for spiritual awakening and energy control.</p>
+                                    <div class="book-price">₹675</div>
+                                    <a href="#" class="btn btn-primary w-100">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Book Card 4: Devotional Text -->
+                        <div class="col-md-6 col-lg-4 book-item" data-category="devotional" data-price="320"
+                            data-name="The Bhagavad Gita (Simplified)">
+                            <div class="card book-card">
+                                <img src="https://placehold.co/800x1200/ff6b35/FFFFFF?text=Bhagavad+Gita"
+                                    class="card-img-top" alt="Bhagavad Gita Book Cover">
+                                <div class="card-body">
+                                    <h5 class="card-title">The Bhagavad Gita (Simplified)</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Translated by Charulekh</h6>
+                                    <p class="card-text">A timeless classic, presented in simple, easy-to-understand
+                                        language for contemporary readers.</p>
+                                    <div class="book-price">₹320</div>
+                                    <a href="#" class="btn btn-primary w-100">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Book Card 5: Vastu Shastra -->
+                        <div class="col-md-6 col-lg-4 book-item" data-category="vastu-shastra" data-price="580"
+                            data-name="Practical Vastu Shastra for Home">
+                            <div class="card book-card">
+                                <img src="https://placehold.co/800x1200/f39c12/FFFFFF?text=Vastu+Guide"
+                                    class="card-img-top" alt="Vastu Shastra Book Cover">
+                                <div class="card-body">
+                                    <h5 class="card-title">Practical Vastu Shastra for Home</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Er. Ramesh Gupta</h6>
+                                    <p class="card-text">Learn how to align your living spaces with cosmic energies for
+                                        harmony, prosperity, and well-being.</p>
+                                    <div class="book-price">₹580</div>
+                                    <a href="#" class="btn btn-primary w-100">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Book Card 6: Yoga & Meditation -->
+                        <div class="col-md-6 col-lg-4 book-item" data-category="yoga-meditation" data-price="420"
+                            data-name="The Path of Inner Peace: Yoga & Meditation">
+                            <div class="card book-card">
+                                <img src="https://placehold.co/800x1200/2c3e50/FFFFFF?text=Yoga+Meditation"
+                                    class="card-img-top" alt="Yoga Meditation Book Cover">
+                                <div class="card-body">
+                                    <h5 class="card-title">The Path of Inner Peace: Yoga & Meditation</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Yogini Shanti Devi</h6>
+                                    <p class="card-text">A beginner-friendly guide to various yoga asanas and meditation
+                                        techniques for a calm mind and healthy body.</p>
+                                    <div class="book-price">₹420</div>
+                                    <a href="#" class="btn btn-primary w-100">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add more book cards as needed for demonstration -->
+                        <div class="col-md-6 col-lg-4 book-item" data-category="vedic-astrology" data-price="750"
+                            data-name="Advanced Nakshatra Readings">
+                            <div class="card book-card">
+                                <img src="https://placehold.co/800x1200/5A2D2A/FFFFFF?text=Nakshatra+Book"
+                                    class="card-img-top" alt="Nakshatra Book Cover">
+                                <div class="card-body">
+                                    <h5 class="card-title">Advanced Nakshatra Readings</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Pt. Ved Prakash</h6>
+                                    <p class="card-text">Delve deeper into the lunar mansions and their profound impact
+                                        on individual characteristics and life events.</p>
+                                    <div class="book-price">₹750</div>
+                                    <a href="#" class="btn btn-primary w-100">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 book-item" data-category="philosophy" data-price="500"
+                            data-name="Understanding Advaita Vedanta">
+                            <div class="card book-card">
+                                <img src="https://placehold.co/800x1200/8B0000/FFFFFF?text=Advaita+Vedanta"
+                                    class="card-img-top" alt="Advaita Vedanta Book Cover">
+                                <div class="card-body">
+                                    <h5 class="card-title">Understanding Advaita Vedanta</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Acharya Gyanesh</h6>
+                                    <p class="card-text">A clear and concise explanation of the non-dualistic philosophy
+                                        of Advaita Vedanta.</p>
+                                    <div class="book-price">₹500</div>
+                                    <a href="#" class="btn btn-primary w-100">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 book-item" data-category="healing" data-price="620"
+                            data-name="Chakra Healing Manual">
+                            <div class="card book-card">
+                                <img src="https://placehold.co/800x1200/CD853F/FFFFFF?text=Chakra+Healing"
+                                    class="card-img-top" alt="Chakra Healing Book Cover">
+                                <div class="card-body">
+                                    <h5 class="card-title">Chakra Healing Manual</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Healer Priya</h6>
+                                    <p class="card-text">Practical techniques and meditations to balance and activate
+                                        your body's energy centers.</p>
+                                    <div class="book-price">₹620</div>
+                                    <a href="#" class="btn btn-primary w-100">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Pagination (Placeholder) -->
+                    <nav aria-label="Book catalog page navigation">
+                        <ul class="pagination justify-content-center mt-5">
+                            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1"
+                                    aria-disabled="true">Previous</a></li>
+                            <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h5><i class="fas fa-book-open me-2"></i>Charulekh Prakashan</h5>
+                    <p>Your trusted partner for spiritual books, devotional products, and authentic spiritual content
+                        since 1990. Serving customers across India with quality and dedication.</p>
+                </div>
+                <div class="col-lg-3">
+                    <h6>Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html#about" class="text-light text-decoration-none">About Us</a></li>
+                        <li><a href="products.html" class="text-light text-decoration-none">Products</a></li>
+                        <li><a href="index.html#quality" class="text-light text-decoration-none">Quality</a></li>
+                        <li><a href="index.html#contact" class="text-light text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6>Product Categories</h6>
+                    <ul class="list-unstyled">
+                        <li>Spiritual Books</li>
+                        <li>Havan Products</li>
+                        <li>Natural Gemstones</li>
+                        <li>Incense Products</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2024 Charulekh Prakashan. All rights reserved. | Jaipur, Rajasthan, India</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle (includes Popper) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const bookItems = document.querySelectorAll('.book-item');
+            const bookListing = document.getElementById('book-listing');
+            const searchInput = document.getElementById('bookSearchInput');
+            const searchButton = document.getElementById('bookSearchBtn');
+            const categoryLinks = document.querySelectorAll('#categoryFilter .list-group-item');
+            const priceRange = document.getElementById('priceRange');
+            const minPriceDisplay = document.getElementById('minPriceDisplay');
+            const maxPriceDisplay = document.getElementById('maxPriceDisplay');
+            const sortByRadios = document.querySelectorAll('input[name="sortBy"]');
+
+            let currentCategory = 'all';
+            let currentMaxPrice = parseInt(priceRange.value);
+            let currentSortBy = document.querySelector('input[name="sortBy"]:checked').value;
+            let currentSearchTerm = '';
+
+            // Function to update price range display
+            function updatePriceDisplay() {
+                minPriceDisplay.textContent = `₹0`;
+                maxPriceDisplay.textContent = `₹${priceRange.value}${priceRange.value === priceRange.max ? '+' : ''}`;
+                currentMaxPrice = parseInt(priceRange.value);
+                applyFiltersAndSort();
+            }
+
+            // Event Listeners
+            searchButton.addEventListener('click', () => {
+                currentSearchTerm = searchInput.value.toLowerCase();
+                applyFiltersAndSort();
+            });
+
+            searchInput.addEventListener('keyup', (e) => {
+                if (e.key === 'Enter') {
+                    currentSearchTerm = searchInput.value.toLowerCase();
+                    applyFiltersAndSort();
+                }
+            });
+
+            categoryLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    categoryLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    currentCategory = this.dataset.category;
+                    applyFiltersAndSort();
+                });
+            });
+
+            priceRange.addEventListener('input', updatePriceDisplay);
+
+            sortByRadios.forEach(radio => {
+                radio.addEventListener('change', function () {
+                    currentSortBy = this.value;
+                    applyFiltersAndSort();
+                });
+            });
+
+            // Initial display update
+            updatePriceDisplay();
+
+
+            // Function to apply filters and sorting
+            function applyFiltersAndSort() {
+                let filteredBooks = Array.from(bookItems).filter(book => {
+                    const category = book.dataset.category;
+                    const price = parseInt(book.dataset.price);
+                    const name = book.dataset.name.toLowerCase();
+
+                    const matchesCategory = currentCategory === 'all' || category === currentCategory;
+                    const matchesPrice = price <= currentMaxPrice;
+                    const matchesSearch = name.includes(currentSearchTerm);
+
+                    return matchesCategory && matchesPrice && matchesSearch;
+                });
+
+                // Sort filtered books
+                filteredBooks.sort((a, b) => {
+                    const priceA = parseInt(a.dataset.price);
+                    const priceB = parseInt(b.dataset.price);
+                    const nameA = a.dataset.name.toLowerCase();
+                    const nameB = b.dataset.name.toLowerCase();
+
+                    if (currentSortBy === 'price-asc') {
+                        return priceA - priceB;
+                    } else if (currentSortBy === 'price-desc') {
+                        return priceB - priceA;
+                    } else if (currentSortBy === 'name-asc') {
+                        return nameA.localeCompare(nameB);
+                    } else if (currentSortBy === 'name-desc') {
+                        return nameB.localeCompare(nameA);
+                    }
+                    // 'featured' (default) maintains original order of elements
+                    return 0;
+                });
+
+                // Clear current listing and append sorted/filtered books
+                bookListing.innerHTML = ''; // Clear previous content
+                if (filteredBooks.length > 0) {
+                    filteredBooks.forEach(book => {
+                        bookListing.appendChild(book);
+                        book.style.display = 'block'; // Ensure it's visible
+                    });
+                } else {
+                    bookListing.innerHTML = '<div class="col-12 text-center py-5"><p class="lead">No books found matching your criteria.</p></div>';
+                }
+            }
+
+            // Initial filter and sort application on page load
+            applyFiltersAndSort();
+        });
+    </script>
+</body>
+
+</html>

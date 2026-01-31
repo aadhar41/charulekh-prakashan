@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charulekh Prakashan - Devotional Books & Spiritual Products</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="icon" href="./assets/img/favicon.ico" type="image/x-icon">
+
+    <!-- <style>
+        :root {
+            --primary-color: #ff6b35;
+            /* Orange-Red */
+            --secondary-color: #2c3e50;
+            /* Dark Blue/Gray */
+            --accent-color: #f39c12;
+            /* Golden Orange */
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            /* Light Gray */
+            --white: #ffffff;
+            --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            padding: 1rem 0;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .navbar-scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            /* Extra bold */
+            font-size: 1.6rem;
+            color: var(--primary-color) !important;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img.logo {
+            height: 40px;
+            margin-right: 0.5rem;
+        }
+
+        .navbar-brand .fa-book-open {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--secondary-color) !important;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color) !important;
+            background-color: rgba(255, 107, 53, 0.1);
+        }
+
+        .navbar-nav .nav-link.active {
+            color: var(--primary-color) !important;
+            font-weight: 700;
+            background-color: rgba(255, 107, 53, 0.05);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: white;
+            padding: 120px 0;
+            /* More vertical space */
+            position: relative;
+            overflow: hidden;
+            border-bottom-left-radius: 80px;
+            /* More pronounced rounded corners */
+            border-bottom-right-radius: 80px;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.15)"/></pattern></defs><rect width="100" height="100" fill="url(%23pattern)"/></svg>');
+            opacity: 0.5;
+            /* Slightly more visible pattern */
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            /* Center content on smaller screens */
+        }
+
+        @media (min-width: 992px) {
+            .hero-content {
+                text-align: left;
+                /* Align left on larger screens */
+            }
+        }
+
+
+        .hero-content h1 {
+            font-size: 3.8rem;
+            /* Larger hero title */
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            /* Larger lead paragraph */
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            /* Center on small screens */
+            text-align: center;
+            /* Center align on small screens */
+            opacity: 0.9;
+        }
+
+        @media (min-width: 992px) {
+            .hero-content p {
+                margin-left: 0;
+                /* Align left on large screens */
+                text-align: left;
+            }
+        }
+
+
+        .hero-section .fa-om {
+            font-size: 15rem;
+            /* Larger OM icon */
+            opacity: 0.15;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            transform: translate(20%, 20%);
+            z-index: 0;
+            filter: blur(1px);
+        }
+
+        @media (max-width: 991.98px) {
+            .hero-section .fa-om {
+                position: relative;
+                transform: none;
+                font-size: 10rem;
+                margin-top: 2rem;
+            }
+        }
+
+        /* General Section Styling */
+        section {
+            padding: 80px 0;
+            /* Consistent vertical padding */
+            overflow: hidden;
+            /* Prevent content overflow */
+        }
+
+        .section-title {
+            color: var(--secondary-color);
+            font-weight: 800;
+            /* Extra bold */
+            font-size: 2.5rem;
+            /* Larger section titles */
+            margin-bottom: 2.5rem;
+            position: relative;
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+            /* Ensure underline spans full width when centered */
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            /* Adjust distance */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            /* Wider underline */
+            height: 4px;
+            /* Thicker underline */
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* Button Styles */
+        .btn {
+            border-radius: 50px;
+            /* Pill shape */
+            padding: 0.8rem 2.2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            transform: translateY(-3px);
+            /* Subtle lift effect */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline-light {
+            border-color: var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline-light:hover {
+            background: var(--white);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--white);
+            /* Changed to white background */
+            padding: 80px 0 50px;
+            /* Adjusted padding */
+            box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.05);
+            /* Subtle inner shadow */
+        }
+
+        .stat-item {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-light);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+            background-color: var(--light-bg);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            /* Larger numbers */
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item h5 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 0.95rem;
+            color: #777;
+        }
+
+        /* About Section */
+        #about {
+            background-color: var(--light-bg);
+            padding-bottom: 50px;
+        }
+
+        #about .lead {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+
+        #about p {
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        #about h5 {
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        #about h5 i {
+            margin-right: 0.75rem;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .quality-feature {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-light);
+            height: 100%;
+            /* Ensure cards have same height */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .quality-feature:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+            background-color: var(--white);
+            /* Keep white background on hover */
+        }
+
+        .quality-icon {
+            font-size: 3.5rem;
+            /* Larger icons */
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .quality-feature h5 {
+            font-size: 1.6rem;
+            /* Larger heading */
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .quality-feature p {
+            font-size: 1.05rem;
+            color: #666;
+        }
+
+        /* Products Section */
+        #products {
+            background-color: var(--white);
+            padding-bottom: 50px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* Center content vertically */
+            padding: 2rem;
+            /* Increased padding */
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            /* More pronounced lift */
+            box-shadow: var(--shadow-medium);
+        }
+
+        .product-icon {
+            font-size: 5rem;
+            /* Even larger icon */
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            /* Increased margin */
+        }
+
+        .product-card h5 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 0.75rem;
+        }
+
+        .product-card p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .products-list-item {
+            background: var(--white);
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            font-size: 1.05rem;
+            color: #444;
+            transition: all 0.2s ease;
+        }
+
+        .products-list-item:hover {
+            background-color: rgba(255, 107, 53, 0.05);
+            transform: translateX(5px);
+            border-color: var(--primary-color);
+        }
+
+        .products-list-item i {
+            color: var(--primary-color);
+            /* Changed from success to primary */
+            margin-right: 1rem;
+            font-size: 1.3rem;
+        }
+
+
+        /* Quality Section */
+        #quality {
+            background-color: var(--light-bg);
+            padding-bottom: 50px;
+        }
+
+        #quality .text-center {
+            padding-bottom: 2rem;
+        }
+
+        /* Featured Product Section */
+        #featured-product {
+            background-color: var(--white);
+        }
+
+        .featured-product-image {
+            border-radius: 15px;
+            box-shadow: var(--shadow-medium);
+            overflow: hidden;
+        }
+
+        .featured-product-image img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .featured-product-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .featured-product-details h3 {
+            font-weight: 700;
+            color: var(--secondary-color);
+            font-size: 2rem;
+        }
+
+        .featured-product-details .lead {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .featured-product-details ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .featured-product-details ul li {
+            font-size: 1.05rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .featured-product-details ul li i {
+            color: var(--primary-color);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Featured Blog Section */
+        #featured-blog {
+            background-color: var(--light-bg);
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .blog-card-content {
+            padding: 2rem;
+        }
+
+        .blog-card-category {
+            display: inline-block;
+            background-color: rgba(255, 107, 53, 0.1);
+            color: var(--primary-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .blog-card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .blog-card-excerpt {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: var(--secondary-color);
+            /* Darker background for contrast */
+            color: white;
+            padding-bottom: 50px;
+        }
+
+        #contact .section-title {
+            color: var(--white);
+        }
+
+        #contact .section-title::after {
+            background-color: var(--primary-color);
+        }
+
+        .contact-info {
+            background: var(--white);
+            padding: 40px;
+            /* Increased padding */
+            border-radius: 15px;
+            box-shadow: var(--shadow-medium);
+            margin-bottom: 30px;
+            color: var(--text-color);
+            /* Ensure text is readable on white background */
+        }
+
+        .contact-info h5 {
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info h5 i {
+            margin-right: 0.75rem;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .contact-info p {
+            color: #555;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--secondary-color);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: auto;
+            box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer h5,
+        .footer h6 {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer p,
+        .footer ul li {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .footer ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer ul li a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .footer hr {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 767.98px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .stat-number {
+                font-size: 3rem;
+            }
+
+            .btn {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .d-flex.gap-3.flex-wrap {
+                justify-content: center;
+            }
+        }
+    </style> -->
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="./assets/img/logo.png" alt="Charulekh Prakashan Logo" class="logo">
+                Charulekh Prakashan
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="books.html">Books</a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quality">Quality</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login/Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-8 hero-content">
+                    <h1 class="display-4 fw-bold mb-4">Charulekh Prakashan</h1>
+                    <p class="lead mb-4">Your trusted source for devotional books, spiritual products, and astrological
+                        literature since 1990. Based in Jaipur, Rajasthan, we've been serving customers across India
+                        with authentic spiritual content and premium incense products.</p>
+                    <div class="d-flex gap-3 flex-wrap justify-content-center justify-content-lg-start">
+                        <a href="products.html" class="btn btn-light btn-lg px-4">
+                            <i class="fas fa-book me-2"></i>Explore Products
+                        </a>
+                        <a href="contact.html" class="btn btn-outline-light btn-lg px-4">
+                            <i class="fas fa-phone me-2"></i>Get In Touch
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center d-none d-lg-block"> <!-- Hidden on small screens -->
+                    <i class="fas fa-om opacity-25"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-item">
+                        <div class="stat-number">34+</div>
+                        <h5>Years of Experience</h5>
+                        <p class="text-muted">Since 1990</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-item">
+                        <div class="stat-number">1000+</div>
+                        <h5>Happy Customers</h5>
+                        <p class="text-muted">Pan India Network</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <h5>Product Categories</h5>
+                        <p class="text-muted">Diverse Range</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <h5>Quality Assured</h5>
+                        <p class="text-muted">Premium Products</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">About Charulekh Prakashan</h2>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <p class="lead">We have built an enviable status for ourselves in the spiritual publishing industry
+                        since 1990.</p>
+                    <p>Based in Jaipur, Rajasthan, we are manufacturers, suppliers, and traders of a diverse range of
+                        devotional products. Our commitment to quality and authenticity has earned us the trust of
+                        customers across India.</p>
+                    <p>We use simple and easy language in our entire assortment of prayer and mantra books, making
+                        spiritual knowledge accessible to everyone. Our incense products are manufactured using premium
+                        aromas and the best standards of raw materials.</p>
+                    <div class="mt-4">
+                        <h5><i class="fas fa-user-tie me-2"></i>Leadership</h5>
+                        <p><strong>Ms. Vipul Sharma</strong> - CEO & Proprietor<br>
+                            Our leader has been the main source of motivation to deliver the best assortments to our
+                            wide clientele.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-4 mt-lg-0">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="quality-feature">
+                                <i class="fas fa-star quality-icon"></i>
+                                <h5>Premium Quality</h5>
+                                <p>Best standards of raw materials from reliable vendors</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="quality-feature">
+                                <i class="fas fa-shield-alt quality-icon"></i>
+                                <h5>Quality Assurance</h5>
+                                <p>Multilayered quality checks for perfect products</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="quality-feature">
+                                <i class="fas fa-shipping-fast quality-icon"></i>
+                                <h5>Reliable Service</h5>
+                                <p>Timely delivery and ethical business practices</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="quality-feature">
+                                <i class="fas fa-heart quality-icon"></i>
+                                <h5>Customer Satisfaction</h5>
+                                <p>Complete satisfaction for our dear customers</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Our Product Range</h2>
+                <p class="lead">Comprehensive collection of spiritual and devotional products</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card product-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-book product-icon"></i>
+                            <h5 class="card-title">Spiritual Books</h5>
+                            <p class="card-text">Astrology books, numerology guides, and spiritual literature in simple
+                                language</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card product-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-fire product-icon"></i>
+                            <h5 class="card-title">Havan Products</h5>
+                            <p class="card-text">Havan books, audio CDs, hawan samagri, and complete ritual supplies</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card product-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-gem product-icon"></i>
+                            <h5 class="card-title">Natural Gemstones</h5>
+                            <p class="card-text">Authentic natural gemstones for astrological and spiritual purposes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card product-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-spa product-icon"></i>
+                            <h5 class="card-title">Incense Products</h5>
+                            <p class="card-text">Pure agarbatti, sarv aushadhi dhoop with premium aromas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 justify-content-center">
+                <div class="col-md-4 mb-3">
+                    <div class="products-list-item">
+                        <i class="fas fa-check-circle me-3"></i>
+                        <span>Pratyabhigyaan Magazine</span>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="products-list-item">
+                        <i class="fas fa-check-circle me-3"></i>
+                        <span>Durga Sptshti Anushthaan Prakash</span>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="products-list-item">
+                        <i class="fas fa-check-circle me-3"></i>
+                        <span>Charulekh Research Center</span>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="products-list-item">
+                        <i class="fas fa-check-circle me-3"></i>
+                        <span>Tantra Books</span>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="products-list-item">
+                        <i class="fas fa-check-circle me-3"></i>
+                        <span>Astrological Writer Books</span>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="products-list-item">
+                        <i class="fas fa-check-circle me-3"></i>
+                        <span>And Many More...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality Section -->
+    <section id="quality" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Why Choose Us</h2>
+                <p class="lead">Our commitment to quality and customer satisfaction</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="quality-feature">
+                        <i class="fas fa-industry quality-icon"></i>
+                        <h4>Modern Infrastructure</h4>
+                        <p>Highly advanced and modern facility with latest technological upgrades to meet market
+                            standards and growing demands.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="quality-feature">
+                        <i class="fas fa-users quality-icon"></i>
+                        <h4>Trusted Vendor Network</h4>
+                        <p>Reliable suppliers providing the best raw materials, judged on fair pricing, ethical methods,
+                            and timely delivery.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="quality-feature">
+                        <i class="fas fa-award quality-icon"></i>
+                        <h4>Quality Assurance</h4>
+                        <p>Multilayered quality checks ensuring purity, effectiveness, reliability, and
+                            cost-effectiveness in all products.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Product Section -->
+    <section id="featured-product" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Featured Product</h2>
+                <p class="lead">Discover our most popular spiritual item</p>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <a href="#" class="featured-product-image">
+                        <img src="https://placehold.co/600x400/ff6b35/ffffff?text=Sarv+Aushadhi+Dhoop"
+                            alt="Featured Product - Sarv Aushadhi Dhoop" class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="featured-product-details">
+                        <h3>Sarv Aushadhi Dhoop</h3>
+                        <p class="lead">An authentic blend of sacred herbs for purification and positive energy.</p>
+                        <p>Our Sarv Aushadhi Dhoop is crafted from a traditional recipe using a blend of all-natural,
+                            medicinal herbs. It's designed to purify your space, create a serene atmosphere for
+                            meditation and rituals, and promote well-being.</p>
+                        <ul class="mt-4">
+                            <li><i class="fas fa-check-circle"></i>Made with 100% natural and sacred herbs.</li>
+                            <li><i class="fas fa-check-circle"></i>Creates a calming and spiritually uplifting aroma.
+                            </li>
+                            <li><i class="fas fa-check-circle"></i>Ideal for daily prayers, havan, and meditation.</li>
+                            <li><i class="fas fa-check-circle"></i>Free from artificial fragrances and chemicals.</li>
+                        </ul>
+                        <a href="products.html" class="btn btn-primary mt-3">
+                            <i class="fas fa-shopping-cart me-2"></i>View Product Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Blog Article Section -->
+    <section id="featured-blog" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">From Our Blog</h2>
+                <p class="lead">Insights and knowledge from the world of spirituality</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="blog-card">
+                        <img src="https://placehold.co/800x400/2c3e50/ffffff?text=The+Power+of+Mantras"
+                            alt="Blog post image">
+                        <div class="blog-card-content">
+                            <span class="blog-card-category">Spirituality</span>
+                            <h3 class="blog-card-title">The Power of Mantras: Unlocking Your Inner Potential</h3>
+                            <p class="blog-card-excerpt">Explore the profound impact of mantra chanting on the mind,
+                                body, and spirit. In this article, we delve into the science and ancient wisdom behind
+                                sacred sounds and how you can integrate this powerful practice into your daily life for
+                                greater peace and clarity.</p>
+                            <a href="blog.html" class="btn btn-primary btn-sm">Read More <i
+                                    class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Contact Us</h2>
+                <p class="lead text-white">Get in touch for all your spiritual and devotional product needs</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-info">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <h5><i class="fas fa-building me-2"></i>Company Information</h5>
+                                <p><strong>Charulekh Prakashan</strong><br>
+                                    Jaipur, Rajasthan, India<br>
+                                    Established: 1990</p>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h5><i class="fas fa-user-tie me-2"></i>Leadership</h5>
+                                <p><strong>Ms. Vipul Sharma</strong><br>
+                                    CEO & Proprietor</p>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h5><i class="fas fa-truck me-2"></i>Services</h5>
+                                <p>• Manufacturer<br>
+                                    • Supplier<br>
+                                    • Trader</p>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h5><i class="fas fa-credit-card me-2"></i>Payment & Shipping</h5>
+                                <p>Multiple payment modes accepted<br>
+                                    Pan-India shipping available<br>
+                                    Bulk orders welcome</p>
+                            </div>
+                        </div>
+                        <div class="text-center mt-4">
+                            <a href="tel:+91XXXXXXXXXX" class="btn btn-primary btn-lg me-3">
+                                <i class="fas fa-phone me-2"></i>Call Now
+                            </a>
+                            <a href="mailto:info@charulekhprakashan.com" class="btn btn-outline-primary btn-lg">
+                                <i class="fas fa-envelope me-2"></i>Send Message
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h5><i class="fas fa-book-open me-2"></i>Charulekh Prakashan</h5>
+                    <p>Your trusted partner for spiritual books, devotional products, and authentic spiritual content
+                        since 1990. Serving customers across India with quality and dedication.</p>
+                </div>
+                <div class="col-lg-3">
+                    <h6>Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html" class="text-light text-decoration-none">About Us</a></li>
+                        <li><a href="products.html" class="text-light text-decoration-none">Products</a></li>
+                        <li><a href="#quality" class="text-light text-decoration-none">Quality</a></li>
+                        <li><a href="#contact" class="text-light text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6>Product Categories</h6>
+                    <ul class="list-unstyled">
+                        <li>Spiritual Books</li>
+                        <li>Havan Products</li>
+                        <li>Natural Gemstones</li>
+                        <li>Incense Products</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2024 Charulekh Prakashan. All rights reserved. | Jaipur, Rajasthan, India</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.navbar-nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    const offsetPosition = targetElement.offsetTop - navbarHeight;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+
+                    // Update active class for nav links
+                    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Add animation to stats on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const value = parseInt(stat.textContent);
+                        if (value) {
+                            animateNumber(stat, value);
+                        }
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+
+        function animateNumber(element, target) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + (element.textContent.includes('+') ? '+' : '') + (element.textContent.includes('%') ? '%' : '');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + (element.textContent.includes('+') ? '+' : '') + (element.textContent.includes('%') ? '%' : '');
+                }
+            }, 20);
+        }
+
+        // Navbar sticky effect on scroll
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+
+            // Update active nav link based on scroll position
+            const sections = document.querySelectorAll('section[id]');
+            const scrollY = window.scrollY;
+
+            sections.forEach(current => {
+                const sectionHeight = current.offsetHeight;
+                const sectionTop = current.offsetTop - navbar.offsetHeight - 20; // Adjusted offset
+
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    const correspondingLink = document.querySelector('.navbar-nav a[href="#' + current.id + '"]');
+                    if (correspondingLink) {
+                        correspondingLink.classList.add('active');
+                    }
+                }
+            });
+        });
+
+        // Initialize active state on load for the current section (Home)
+        document.querySelector('.navbar-nav a[href="#home"]').classList.add('active');
+    </script>
+</body>
+
+</html>

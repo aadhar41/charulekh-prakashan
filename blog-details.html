@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post Title - Charulekh Prakashan</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom CSS variables based on existing theme */
+        :root {
+            --primary-color: #ff6b35;
+            --secondary-color: #2c3e50;
+            --accent-color: #f39c12;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            /* Use light background for content pages */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header (Navbar) - Replicated from existing pages */
+        .navbar {
+            background-color: #fff;
+            /* White background for header */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            /* Subtle shadow */
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+            /* Ensure brand color matches */
+        }
+
+        .navbar-brand img.logo {
+            height: 40px;
+            margin-right: 0.5rem;
+        }
+
+        .navbar-brand .fa-book-open {
+            color: var(--primary-color);
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--secondary-color) !important;
+            /* Link color */
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color) !important;
+            /* Hover color */
+        }
+
+        .navbar-nav .nav-link.active {
+            color: var(--primary-color) !important;
+            /* Active link color */
+            font-weight: 600;
+        }
+
+        /* Section Titles - Replicated from existing pages */
+        .section-title {
+            color: var(--secondary-color);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+            /* For the underline effect */
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 70px;
+            /* Slightly wider underline for prominence */
+            height: 3px;
+            background: var(--primary-color);
+        }
+
+        /* Page Hero Section - Adapted for Blog Detail */
+        .page-hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 80px 0 40px;
+            /* Adjust padding for visual balance */
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom-left-radius: 50px;
+            /* Rounded bottom corners */
+            border-bottom-right-radius: 50px;
+            margin-bottom: 3rem;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23pattern)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Main Content Section styling */
+        .blog-detail-content {
+            padding-top: 3rem;
+            /* Add padding at the top to clear the fixed header */
+            padding-bottom: 3rem;
+        }
+
+        .blog-post-header img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .blog-post-meta {
+            font-size: 0.95rem;
+            color: #777;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-post-meta i {
+            margin-right: 0.5rem;
+        }
+
+        .blog-post-body p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #444;
+        }
+
+        .blog-post-body h4 {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-post-body ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-post-body ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Comments Section */
+        .comments-section {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-top: 3rem;
+        }
+
+        .comment {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .comment:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .comment-author {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        .comment-date {
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        .comment-form .form-control {
+            border-radius: 10px;
+        }
+
+        .comment-form .btn-primary {
+            border-radius: 50px;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .comment-form .btn-primary:hover {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        /* Sidebar (reused from blog listing) */
+        .sidebar {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-top: 0;
+            /* Align with main content */
+        }
+
+        @media (max-width: 991.98px) {
+            .sidebar {
+                margin-top: 2rem;
+            }
+        }
+
+        .sidebar h4 {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .sidebar h4::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        .sidebar .list-group-item {
+            border: none;
+            padding: 0.75rem 0;
+            color: #555;
+            transition: color 0.3s ease;
+        }
+
+        .sidebar .list-group-item:hover {
+            color: var(--primary-color);
+        }
+
+
+        /* Footer - Replicated from existing pages */
+        .footer {
+            background: var(--secondary-color);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: auto;
+            /* Push footer to the bottom */
+        }
+
+        .footer h5,
+        .footer h6 {
+            color: var(--primary-color);
+            /* Highlight footer headings */
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer p,
+        .footer ul li {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .footer ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer ul li a:hover {
+            color: white;
+        }
+
+        .footer hr {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 767.98px) {
+
+            /* Adjust for mobile hero */
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .page-hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="./assets/img/logo.png" alt="Charulekh Prakashan Logo" class="logo">
+                Charulekh Prakashan
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="books.html">Books</a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quality">Quality</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login/Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Understanding Your Birth Chart: A Beginner's Guide to Vedic Astrology</h1>
+            <p>Dive into the fascinating world of Vedic astrology and interpret your destiny.</p>
+        </div>
+    </section>
+
+    <!-- Blog Detail Content Section -->
+    <section id="blog-detail-content" class="py-5 blog-detail-content">
+        <div class="container">
+            <div class="row">
+                <!-- Blog Post Content Column -->
+                <div class="col-lg-8">
+                    <div class="blog-post-header">
+                        <img src="https://placehold.co/1200x600/FF6347/FFFFFF?text=Vedic+Astrology+Article"
+                            class="img-fluid" alt="Vedic Astrology Insights">
+                    </div>
+                    <div class="blog-post-meta">
+                        <span><i class="far fa-calendar-alt"></i> June 07, 2024</span> |
+                        <span><i class="far fa-user"></i> Admin</span> |
+                        <span><i class="fas fa-tags"></i> Astrology, Vedic Wisdom, Horoscopes</span>
+                    </div>
+                    <div class="blog-post-body">
+                        <p>Vedic astrology, also known as Jyotish, is an ancient Indian science that interprets
+                            celestial influences on human life. It is based on the sidereal zodiac, which differs from
+                            the tropical zodiac used in Western astrology. Understanding your birth chart (Kundali) is
+                            the first step to unlocking its profound insights.</p>
+                        <p>Your birth chart is a celestial map of the planets at the exact moment of your birth. Each
+                            planet represents different aspects of life, and their positions in various houses and
+                            zodiac signs reveal your personality traits, strengths, challenges, and potential life
+                            events.</p>
+
+                        <h4>Key Components of Your Birth Chart:</h4>
+                        <ul>
+                            <li><strong>Lagna (Ascendant):</strong> This is the rising sign on the eastern horizon at
+                                the time of your birth. It represents your physical appearance, personality, and overall
+                                life direction.</li>
+                            <li><strong>Planets (Grahas):</strong> The nine planets (Sun, Moon, Mars, Mercury, Jupiter,
+                                Venus, Saturn, Rahu, Ketu) are the primary actors. Each rules specific areas of life and
+                                influences you based on its position and aspects.</li>
+                            <li><strong>Houses (Bhava):</strong> There are twelve houses in a birth chart, each
+                                corresponding to a different area of life, such as career, relationships, wealth,
+                                health, and spirituality.</li>
+                            <li><strong>Zodiac Signs (Rashi):</strong> The twelve zodiac signs define the nature and
+                                characteristics of the planets placed within them.</li>
+                        </ul>
+
+                        <p>Interpreting these elements requires careful study and understanding of their complex
+                            interactions. However, even a basic grasp can provide immense clarity and self-awareness.
+                            Charulekh Prakashan offers a variety of books and courses to help you on your journey to
+                            mastering Vedic astrology.</p>
+
+                        <p>Stay tuned for our next article, where we will delve deeper into the significance of
+                            individual planets in your birth chart!</p>
+                    </div>
+
+                    <!-- Comments Section -->
+                    <div class="comments-section mt-5">
+                        <h4 class="section-title mb-4">Comments (2)</h4>
+
+                        <div class="comment">
+                            <p class="mb-1"><strong class="comment-author">Arjun Mehta</strong> <span
+                                    class="comment-date">on June 08, 2024</span></p>
+                            <p>This article is very helpful for beginners! I always wanted to understand my birth chart
+                                better. Thank you!</p>
+                        </div>
+                        <div class="comment">
+                            <p class="mb-1"><strong class="comment-author">Sneha Devi</strong> <span
+                                    class="comment-date">on June 07, 2024</span></p>
+                            <p>Clear and concise explanation. Looking forward to the next part about planets!</p>
+                        </div>
+
+                        <h5 class="mt-4 mb-3">Leave a Comment</h5>
+                        <form class="comment-form">
+                            <div class="mb-3">
+                                <label for="commentName" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="commentName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="commentEmail" class="form-label">Email (will not be published)</label>
+                                <input type="email" class="form-control" id="commentEmail" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="commentText" class="form-label">Comment</label>
+                                <textarea class="form-control" id="commentText" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit Comment</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Sidebar Column (similar to blog listing) -->
+                <div class="col-lg-4">
+                    <div class="sidebar">
+                        <h4>Related Articles</h4>
+                        <div class="list-group list-group-flush">
+                            <a href="#" class="list-group-item">The Influence of Mars in Your Chart</a>
+                            <a href="#" class="list-group-item">Remedies for Astrological Afflictions</a>
+                            <a href="#" class="list-group-item">An Introduction to Dasha Systems</a>
+                            <a href="#" class="list-group-item">Understanding the 12 Houses of Astrology</a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar mt-4">
+                        <h4>Categories</h4>
+                        <div class="list-group list-group-flush">
+                            <a href="#" class="list-group-item">Astrology</a>
+                            <a href="#" class="list-group-item">Numerology</a>
+                            <a href="#" class="list-group-item">Mantra & Chanting</a>
+                            <a href="#" class="list-group-item">Gemstones</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h5><i class="fas fa-book-open me-2"></i>Charulekh Prakashan</h5>
+                    <p>Your trusted partner for spiritual books, devotional products, and authentic spiritual content
+                        since 1990. Serving customers across India with quality and dedication.</p>
+                </div>
+                <div class="col-lg-3">
+                    <h6>Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html#about" class="text-light text-decoration-none">About Us</a></li>
+                        <li><a href="products.html" class="text-light text-decoration-none">Products</a></li>
+                        <li><a href="index.html#quality" class="text-light text-decoration-none">Quality</a></li>
+                        <li><a href="index.html#contact" class="text-light text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6>Product Categories</h6>
+                    <ul class="list-unstyled">
+                        <li>Spiritual Books</li>
+                        <li>Havan Products</li>
+                        <li>Natural Gemstones</li>
+                        <li>Incense Products</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2024 Charulekh Prakashan. All rights reserved. | Jaipur, Rajasthan, India</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle (includes Popper) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for navigation links (if any internal links are added later)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Placeholder for comment submission
+        document.querySelector('.comment-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('commentName').value;
+            const email = document.getElementById('commentEmail').value;
+            const commentText = document.getElementById('commentText').value;
+
+            if (name && email && commentText) {
+                alert(`Thank you, ${name}, for your comment! It will be reviewed shortly.`);
+                this.reset();
+            } else {
+                alert('Please fill in all required fields to submit a comment.');
+            }
+        });
+    </script>
+</body>
+
+</html>

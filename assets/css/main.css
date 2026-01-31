@@ -1,0 +1,1494 @@
+/* Charulekh Prakashan - Unified Main Styles */
+
+/* CSS Variables */
+:root {
+  --primary-color: #ff6b35;
+  --secondary-color: #2c3e50;
+  --accent-color: #f39c12;
+  --text-color: #333;
+  --light-bg: #f8f9fa;
+  --white: #ffffff;
+  --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.08);
+  --shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* General Body */
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--light-bg);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Fix for .fas.fa-check-circle icon alignment and appearance */
+.fas.fa-check-circle,
+.fa-check-circle {
+  color: var(--primary-color) !important;
+  font-size: 1.3rem;
+  margin-right: 0.75rem;
+  vertical-align: middle;
+  /* Ensures icon aligns well with text */
+  display: inline-block;
+  min-width: 1.3em;
+  /* Keeps spacing consistent even if icon is missing */
+}
+
+/* For product and feature lists, ensure icons are vertically centered */
+.products-list-item i.fa-check-circle,
+.featured-product-details ul li i.fa-check-circle {
+  color: var(--primary-color) !important;
+  font-size: 1.3rem;
+  margin-right: 0.75rem;
+  vertical-align: middle;
+  display: inline-block;
+  min-width: 1.3em;
+}
+
+ul li {
+  font-size: 1.05rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: var(--white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  padding: 1rem 0;
+}
+.navbar-scrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--primary-color) !important;
+  display: flex;
+  align-items: center;
+}
+.navbar-brand img.logo {
+  height: 40px;
+  margin-right: 0.5rem;
+}
+.navbar-brand .fa-book-open {
+  color: var(--primary-color);
+}
+.navbar-nav .nav-link {
+  color: var(--secondary-color) !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.navbar-nav .nav-link:hover {
+  color: var(--primary-color) !important;
+}
+.navbar-nav .nav-link.active {
+  color: var(--primary-color) !important;
+  font-weight: 600;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--accent-color) 100%
+  );
+  color: white;
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+  border-bottom-left-radius: 80px;
+  border-bottom-right-radius: 80px;
+  box-shadow: var(--shadow-medium);
+}
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.15)"/></pattern></defs><rect width="100" height="100" fill="url(%23pattern)"/></svg>');
+  opacity: 0.5;
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+@media (min-width: 992px) {
+  .hero-content {
+    text-align: left;
+  }
+}
+.hero-content h1 {
+  font-size: 3.8rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+.hero-content p {
+  font-size: 1.3rem;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  text-align: center;
+  opacity: 0.9;
+}
+@media (min-width: 992px) {
+  .hero-content p {
+    margin-left: 0;
+    text-align: left;
+  }
+}
+.hero-section .fa-om {
+  font-size: 15rem;
+  opacity: 0.15;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translate(20%, 20%);
+  z-index: 0;
+  filter: blur(1px);
+}
+@media (max-width: 991.98px) {
+  .hero-section .fa-om {
+    position: relative;
+    transform: none;
+    font-size: 10rem;
+    margin-top: 2rem;
+  }
+}
+
+/* Section Titles */
+.section-title {
+  color: var(--secondary-color);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 70px;
+  height: 3px;
+  background: var(--primary-color);
+}
+
+/* Button Styles */
+.btn {
+  border-radius: 50px;
+  padding: 0.8rem 2.2rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.btn-primary {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--white);
+}
+.btn-primary:hover {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+.btn-outline-light {
+  border-color: var(--white);
+  color: var(--white);
+}
+.btn-outline-light:hover {
+  background: var(--white);
+  color: var(--primary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Stats Section */
+.stats-section {
+  background: var(--white);
+  padding: 80px 0 50px;
+  box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+.stat-item {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-light);
+}
+.stat-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium);
+  background-color: var(--light-bg);
+}
+.stat-number {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.stat-item h5 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+.stat-item p {
+  font-size: 0.95rem;
+  color: #777;
+}
+
+/* About Section */
+#about,
+.about-content {
+  background-color: var(--light-bg);
+  padding-bottom: 50px;
+}
+#about .lead,
+.about-text .lead {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--secondary-color);
+}
+#about p,
+.about-text p {
+  font-size: 1.05rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+#about h5 {
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+#about h5 i {
+  margin-right: 0.75rem;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.leadership-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.leadership-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.leadership-card i {
+  font-size: 3.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.leadership-card h5 {
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+/* Quality Feature Cards */
+.quality-feature {
+  background: var(--white);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-light);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.quality-feature:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-medium);
+  background-color: var(--white);
+}
+.quality-icon {
+  font-size: 3.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+.quality-feature h5,
+.quality-feature h4 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+.quality-feature p {
+  font-size: 1.05rem;
+  color: #666;
+}
+
+/* Products Section */
+#products {
+  background-color: var(--white);
+  padding-bottom: 50px;
+}
+.product-card {
+  background: var(--white);
+  border-radius: 15px;
+  box-shadow: var(--shadow-light);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+}
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-medium);
+}
+.product-icon {
+  font-size: 5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+.product-card h5 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin-bottom: 0.75rem;
+}
+.product-card p {
+  font-size: 1rem;
+  color: #666;
+}
+.products-list-item {
+  background: var(--white);
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.05rem;
+  color: #444;
+  transition: all 0.2s ease;
+}
+.products-list-item:hover {
+  background-color: rgba(255, 107, 53, 0.05);
+  transform: translateX(5px);
+  border-color: var(--primary-color);
+}
+.products-list-item i {
+  color: var(--primary-color);
+  margin-right: 1rem;
+  font-size: 1.3rem;
+}
+
+/* Page Hero Section */
+.page-hero {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--accent-color)
+  );
+  color: white;
+  padding: 80px 0 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  margin-bottom: 3rem;
+}
+.page-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23pattern)"/></svg>');
+  opacity: 0.3;
+}
+.page-hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.page-hero p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Books Catalog Content Section */
+.books-content {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+/* Book Card */
+.book-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.book-card img {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  object-fit: cover;
+  height: 250px;
+  width: 100%;
+  object-position: center;
+}
+.book-card .card-body {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.book-card .card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+.book-card .card-subtitle {
+  font-size: 0.95rem;
+  color: #777;
+  margin-bottom: 1rem;
+}
+.book-card .card-text {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+.book-card .book-price {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.book-card .btn-primary {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  border-radius: 50px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.book-card .btn-primary:hover {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Sidebar for Categories/Filters */
+.sidebar {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+.contact-sidebar {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  margin-top: 0;
+}
+@media (max-width: 991.98px) {
+  .sidebar,
+  .contact-sidebar {
+    margin-top: 2rem;
+  }
+}
+.sidebar h4,
+.contact-sidebar h4 {
+  color: var(--secondary-color);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+.sidebar h4::after,
+.contact-sidebar h4::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: var(--primary-color);
+}
+.contact-sidebar h4::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.sidebar .list-group-item {
+  border: none;
+  padding: 0.75rem 1rem;
+  color: #555;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+.sidebar .list-group-item:hover {
+  color: var(--primary-color);
+  background-color: rgba(255, 107, 53, 0.05);
+}
+.sidebar .list-group-item.active {
+  color: var(--primary-color);
+  font-weight: 600;
+  background-color: var(--light-bg);
+}
+
+/* Filter specific styles */
+.filter-group {
+  margin-bottom: 2rem;
+}
+.filter-group label {
+  font-weight: 500;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.filter-group .form-check-label {
+  color: #666;
+}
+.filter-group .form-check-input:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+.filter-group .form-range {
+  accent-color: var(--primary-color);
+}
+
+/* Search Bar Styling */
+.search-bar .form-control {
+  border-radius: 50px;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #ddd;
+}
+.search-bar .btn {
+  border-radius: 50px;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+}
+.search-bar .btn:hover {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+/* Responsive for books page */
+@media (max-width: 767.98px) {
+  .page-hero h1 {
+    font-size: 2.5rem;
+  }
+  .page-hero p {
+    font-size: 1rem;
+  }
+  .sidebar,
+  .contact-sidebar {
+    margin-top: 2rem;
+  }
+  .book-card .card-body {
+    padding: 1rem;
+  }
+}
+
+/* =========================
+   Products Page Sync Styles
+   ========================= */
+
+/* Custom CSS variables based on existing theme */
+:root {
+  --primary-color: #ff6b35;
+  --secondary-color: #2c3e50;
+  --accent-color: #f39c12;
+  --text-color: #333;
+  --light-bg: #f8f9fa;
+}
+
+/* General Body */
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--light-bg);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  padding: 1rem 0;
+}
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--primary-color) !important;
+}
+.navbar-brand img.logo {
+  height: 40px;
+  margin-right: 0.5rem;
+}
+.navbar-brand .fa-book-open {
+  color: var(--primary-color);
+}
+.navbar-nav .nav-link {
+  color: var(--secondary-color) !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.navbar-nav .nav-link:hover {
+  color: var(--primary-color) !important;
+}
+.navbar-nav .nav-link.active {
+  color: var(--primary-color) !important;
+  font-weight: 600;
+}
+
+/* Section Titles */
+.section-title {
+  color: var(--secondary-color);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 70px;
+  height: 3px;
+  background: var(--primary-color);
+}
+
+/* Page Hero Section */
+.page-hero {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--accent-color)
+  );
+  color: white;
+  padding: 80px 0 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  margin-bottom: 3rem;
+}
+.page-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23pattern)"/></svg>');
+  opacity: 0.3;
+}
+.page-hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.page-hero p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Main Content Section styling */
+.products-content {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+/* Product Card */
+.product-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.product-card img {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  object-fit: cover;
+  height: 200px;
+  width: 100%;
+}
+.product-card .card-body {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.product-card .card-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: 0.75rem;
+}
+.product-card .card-text {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+.product-card .product-price {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 1.25rem;
+}
+.product-card .btn-primary {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  border-radius: 50px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.product-card .btn-primary:hover {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Sidebar for Categories/Filters */
+.sidebar {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+@media (max-width: 991.98px) {
+  .sidebar {
+    margin-top: 2rem;
+  }
+}
+.sidebar h4 {
+  color: var(--secondary-color);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+.sidebar h4::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: var(--primary-color);
+}
+.sidebar .list-group-item {
+  border: none;
+  padding: 0.75rem 0;
+  color: #555;
+  transition: color 0.3s ease;
+}
+.sidebar .list-group-item:hover {
+  color: var(--primary-color);
+}
+.sidebar .list-group-item:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.sidebar .list-group-item:last-child {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Footer */
+.footer {
+  background: var(--secondary-color);
+  color: white;
+  padding: 40px 0 20px;
+  margin-top: auto;
+}
+.footer h5,
+.footer h6 {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+.footer p,
+.footer ul li {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+.footer ul {
+  padding-left: 0;
+  list-style: none;
+}
+.footer ul li a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.footer ul li a:hover {
+  color: white;
+}
+.footer hr {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive for products page */
+@media (max-width: 767.98px) {
+  .page-hero h1 {
+    font-size: 2.5rem;
+  }
+  .page-hero p {
+    font-size: 1rem;
+  }
+  .sidebar {
+    margin-top: 2rem;
+  }
+  .product-card .card-body {
+    padding: 1rem;
+  }
+}
+
+/* =========================
+   Product Details Page Sync Styles
+   ========================= */
+
+/* Custom CSS variables based on existing theme */
+:root {
+  --primary-color: #ff6b35;
+  --secondary-color: #2c3e50;
+  --accent-color: #f39c12;
+  --text-color: #333;
+  --light-bg: #f8f9fa;
+}
+
+/* Main Content Section styling for product details */
+.product-detail-content {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.product-image-container {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+.product-image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+.product-image-container img:hover {
+  transform: scale(1.02);
+}
+
+.product-details {
+  padding-left: 2rem;
+}
+@media (max-width: 991.98px) {
+  .product-details {
+    padding-left: 0;
+    margin-top: 2rem;
+  }
+  .product-image-container {
+    padding: 0.5rem;
+  }
+}
+
+.product-details h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+.product-details h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #777;
+  margin-bottom: 1.5rem;
+}
+.product-details .product-price {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+.product-details p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+/* Product Features List */
+.product-features ul {
+  list-style: none;
+  padding: 0;
+}
+.product-features ul li {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+.product-features ul li i {
+  color: var(--primary-color);
+  margin-right: 0.75rem;
+}
+
+/* Action Buttons */
+.action-buttons .btn {
+  border-radius: 50px;
+  padding: 0.8rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.action-buttons .btn-primary {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
+.action-buttons .btn-primary:hover {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.action-buttons .btn-outline-primary {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+.action-buttons .btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Tabs for Description/Reviews/etc. */
+.product-tabs .nav-link {
+  color: var(--secondary-color);
+  font-weight: 600;
+  border-color: #ddd;
+  border-bottom: 2px solid transparent;
+  margin-right: 15px;
+  padding: 10px 0;
+  transition: all 0.3s ease;
+}
+.product-tabs .nav-link.active,
+.product-tabs .nav-link:hover {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+.tab-content {
+  background: #fff;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  margin-top: 1.5rem;
+}
+
+/* Responsive for product details page */
+@media (max-width: 767.98px) {
+  .page-hero h1 {
+    font-size: 2.5rem;
+  }
+  .page-hero p {
+    font-size: 1rem;
+  }
+}
+
+/* =========================
+   Password Update Page Sync Styles
+   ========================= */
+
+/* Custom CSS variables based on existing theme */
+:root {
+  --primary-color: #ff6b35;
+  --secondary-color: #2c3e50;
+  --accent-color: #f39c12;
+  --text-color: #333;
+  --light-bg: #f8f9fa;
+}
+
+/* General Body */
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--light-bg);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  padding: 1rem 0;
+}
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--primary-color) !important;
+}
+.navbar-brand img.logo {
+  height: 40px;
+  margin-right: 0.5rem;
+}
+.navbar-brand .fa-book-open {
+  color: var(--primary-color);
+}
+.navbar-nav .nav-link {
+  color: var(--secondary-color) !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.navbar-nav .nav-link:hover {
+  color: var(--primary-color) !important;
+}
+.navbar-nav .nav-link.active {
+  color: var(--primary-color) !important;
+  font-weight: 600;
+}
+
+/* Section Titles */
+.section-title {
+  color: var(--secondary-color);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 70px;
+  height: 3px;
+  background: var(--primary-color);
+}
+
+/* Page Hero Section */
+.page-hero {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--accent-color)
+  );
+  color: white;
+  padding: 80px 0 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  margin-bottom: 3rem;
+}
+.page-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23pattern)"/></svg>');
+  opacity: 0.3;
+}
+.page-hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.page-hero p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Form Section Styling */
+.form-section {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  flex-grow: 1;
+}
+.auth-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+}
+.auth-card .form-control {
+  border-radius: 50px;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid #ddd;
+  transition: border-color 0.3s ease;
+}
+.auth-card .form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(255, 107, 53, 0.25);
+}
+.auth-card .btn-primary {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  border-radius: 50px;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.auth-card .btn-primary:hover {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.auth-card a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.auth-card a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+/* Contact Section */
+#contact {
+  background-color: var(--secondary-color);
+  color: white;
+  padding-bottom: 50px;
+}
+#contact .section-title {
+  color: var(--white);
+}
+#contact .section-title::after {
+  background-color: var(--primary-color);
+}
+.contact-info {
+  background: var(--white);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: var(--shadow-medium);
+  margin-bottom: 30px;
+  color: var(--text-color);
+}
+.contact-info h5 {
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+.contact-info h5 i {
+  margin-right: 0.75rem;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+.contact-info p {
+  color: #555;
+  font-size: 1rem;
+}
+
+/* Footer */
+.footer {
+  background: var(--secondary-color);
+  color: white;
+  padding: 40px 0 20px;
+  margin-top: auto;
+  box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+.footer h5,
+.footer h6 {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+.footer p,
+.footer ul li {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+.footer ul {
+  padding-left: 0;
+  list-style: none;
+}
+.footer ul li a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.footer ul li a:hover {
+  color: white;
+}
+.footer hr {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* =========================
+   Books Catalog Page Sync Styles
+   ========================= */
+
+/* Main Content Section styling for books */
+.books-content {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+/* Book Card */
+.book-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.book-card img {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  object-fit: cover;
+  height: 250px;
+  width: 100%;
+  object-position: center;
+}
+.book-card .card-body {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.book-card .card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+.book-card .card-subtitle {
+  font-size: 0.95rem;
+  color: #777;
+  margin-bottom: 1rem;
+}
+.book-card .card-text {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+.book-card .book-price {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.book-card .btn-primary {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  border-radius: 50px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.book-card .btn-primary:hover {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Sidebar for Categories/Filters */
+.sidebar {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+.contact-sidebar {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  margin-top: 0;
+}
+@media (max-width: 991.98px) {
+  .sidebar,
+  .contact-sidebar {
+    margin-top: 2rem;
+  }
+}
+.sidebar h4,
+.contact-sidebar h4 {
+  color: var(--secondary-color);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+.sidebar h4::after,
+.contact-sidebar h4::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: var(--primary-color);
+}
+.contact-sidebar h4::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.sidebar .list-group-item {
+  border: none;
+  padding: 0.75rem 1rem;
+  color: #555;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+.sidebar .list-group-item:hover {
+  color: var(--primary-color);
+  background-color: rgba(255, 107, 53, 0.05);
+}
+.sidebar .list-group-item.active {
+  color: var(--primary-color);
+  font-weight: 600;
+  background-color: var(--light-bg);
+}
+
+/* Filter specific styles */
+.filter-group {
+  margin-bottom: 2rem;
+}
+.filter-group label {
+  font-weight: 500;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.filter-group .form-check-label {
+  color: #666;
+}
+.filter-group .form-check-input:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+.filter-group .form-range {
+  accent-color: var(--primary-color);
+}
+
+/* Search Bar Styling */
+.search-bar .form-control {
+  border-radius: 50px;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #ddd;
+}
+.search-bar .btn {
+  border-radius: 50px;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+}
+.search-bar .btn:hover {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+/* Responsive for books page */
+@media (max-width: 767.98px) {
+  .page-hero h1 {
+    font-size: 2.5rem;
+  }
+  .page-hero p {
+    font-size: 1rem;
+  }
+  .sidebar,
+  .contact-sidebar {
+    margin-top: 2rem;
+  }
+  .book-card .card-body {
+    padding: 1rem;
+  }
+}
+
+/* ...existing code... */
